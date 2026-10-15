@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ijumo Progressive Secondary School</title>
+
+<style>/* =========================================================
+   IJUMO PROGRESSIVE SECONDARY SCHOOL
+   DRAMATIC MODERN WEBSITE CSS
+   ========================================================= */
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: super smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #a5c5f0;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 6%;
+
+    background: rgba(6, 32, 183, 0.88);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(187, 121, 22, 0.15);
+
+    box-shadow: 0 5px 25px rgba(109, 6, 6, 0.25);
+}
+
+/* ---------- LOGO ---------- */
+
+.logo {
+    color: rgb(239, 238, 243)
+    
+}
+
+.logo h1 {
+    font-size: 21px;
+    letter-spacing: 1px;
+    font-weight: 800;
+}
+
+.logo p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #f7fbfd;
+    margin-top: -3px;
+}
+
+/* ---------- NAVIGATION ---------- */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: #35c8ff;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d4eb4d;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ---------- ADMIN BUTTON ---------- */
+
+.admin-link {
+    background: linear-gradient(135deg, #9abb08, #d89b0b);
+
+    padding: 9px 15px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 0 15px rgba(80, 36, 20, 0.35);
+}
+
+.admin-link::after {
+    display: none;
+}
+
+.admin-link:hover {
+    color: rgb(45, 11, 182);
+    transform: translateY(-2px);
+}
+
+/* ---------- MOBILE MENU ---------- */
+
+.menu-btn {
+    display: none;
+    color: rgb(250, 247, 247);
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DRAMATIC HOME PAGE
+   ========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 120px 20px 70px;
+
+    color: white;
+
+    overflow: hidden;
+
+    /* SCHOOL IMAGE BEHIND EVERYTHING */
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(190, 206, 234, 0.82),
+            rgba(205, 222, 241, 0.68),
+            rgba(226, 240, 246, 0.72)
+        ),
+        url("admin block.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: glow;
+
+    background-attachment: move;
+}
+
+
+/* ---------- DRAMATIC GLOW ---------- */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    background: rgba(247, 254, 255, 0.144);
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    top: -250px;
+    left: -200px;
+
+    animation: glowMove 1s infinite alternate ease-in-out;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background: rgba(202, 215, 236, 0.13);
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    bottom: -250px;
+    right: -150px;
+
+    animation: glowMove2 10s infinite alternate ease-in-out;
+}
+
+
+/* ---------- HERO CONTENT ---------- */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1000px;
+
+    animation: heroAppear 1.4s ease;
+}
+
+
+/* ---------- SCHOOL BADGE ---------- */
+
+.school-badge {
+    width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+
+    filter:
+        drop-shadow(0 0 15px rgba(172, 220, 238, 0.4))
+        drop-shadow(0 0 35px rgba(0,174,255,0.45));
+
+    animation: badgeFloat 4s ease-in-out infinite;
+}
+
+
+/* ---------- WELCOME TEXT ---------- */
+
+.welcome-text {
+    font-size: 15px;
+
+    letter-spacing: 7px;
+
+    color: #04053b;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+
+    text-transform: uppercase;
+}
+
+
+/* ---------- MAIN TITLE ---------- */
+
+.hero h1 {
+    font-size: clamp(38px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 4px 20px rgba(0,0,0,0.7),
+        0 0 25px rgba(0,174,255,0.25);
+
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: #040c58;
+
+    text-shadow:
+        0 0 10px rgba(72,213,255,0.5),
+        0 0 30px rgba(72,213,255,0.3);
+}
+
+
+/* ---------- MOTTO ---------- */
+
+.hero h2 {
+    font-size: clamp(18px, 3vw, 30px);
+
+    letter-spacing: 5px;
+
+    color: #170937;
+
+    margin: 20px 0;
+
+    font-weight: 700;
+
+    text-shadow: 0 3px 15px rgba(0,0,0,0.8);
+}
+
+
+/* ---------- DESCRIPTION ---------- */
+
+.hero-description {
+    max-width: 700px;
+
+    margin: 0 auto 30px;
+
+    font-size: 18px;
+
+    color: rgba(18, 1, 1, 0.86);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 14px 28px;
+
+    border-radius: 40px;
+
+    background: linear-gradient(
+        135deg,
+        #007bff,
+        #00c6ff
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    box-shadow:
+        0 8px 25px rgba(0, 123, 255, 0.35),
+        inset 0 0 10px rgba(255,255,255,0.15);
+
+    transition: 0.35s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.03);
+
+    box-shadow:
+        0 12px 35px rgba(0, 174, 255, 0.5);
+}
+
+
+/* ---------- OUTLINE BUTTON ---------- */
+
+.btn-outline {
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.5);
+
+    backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.18);
+
+    color: white;
+}
+
+
+/* ---------- DARK BUTTON ---------- */
+
+.btn-dark {
+    background: #06182e;
+
+    color: white;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+section:not(.hero) {
+    padding: 90px 7%;
+}
+
+section h2 {
+    text-align: center;
+
+    font-size: 36px;
+
+    color: #062b55;
+
+    margin-bottom: 15px;
+}
+
+section > p {
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 0 auto 40px;
+
+    color: #666;
+}
+
+
+/* ---------- ABOUT ---------- */
+
+#about {
+    background: white;
+}
+
+.about-content {
+    max-width: 1000px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 17px;
+
+    color: #555;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+    transition: 0.35s;
+
+    border: 1px solid #edf2f7;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.14);
+}
+
+.card h3 {
+    color: #06396b;
+
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
+}
+
+
+/* =========================================================
+   IMAGE CARDS
+   ========================================================= */
+
+.image-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.image-card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    height: 280px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.15);
+}
+
+.image-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.6s;
+}
+
+.image-card:hover img {
+    transform: scale(1.12);
+}
+
+.image-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 40%,
+            rgba(0,0,0,0.8)
+        );
+}
+
+.image-card h3 {
+    position: absolute;
+
+    bottom: 20px;
+    left: 20px;
+
+    z-index: 2;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   ADMISSIONS
+   ========================================================= */
+
+#admissions {
+    background:
+        linear-gradient(
+            rgba(3, 38, 80, 0.95),
+            rgba(0, 20, 45, 0.95)
+        );
+
+    color: white;
+}
+
+#admissions h2 {
+    color: white;
+}
+
+.application-box {
+    max-width: 900px;
+
+    margin: auto;
+
+    background: rgba(255,255,255,0.08);
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.3);
+}
+
+.application-box input,
+.application-box select,
+.application-box textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    outline: none;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+#gallery {
+    background: #f5f8fc;
+}
+
+
+/* =========================================================
+   NEWS
+   ========================================================= */
+
+#news {
+    background: white;
+}
+
+.news-container {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.news-card {
+    background: white;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    border-left: 5px solid #00aaff;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+}
+
+.news-card h3 {
+    color: #06396b;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+#contact {
+    background: #eef4fa;
+}
+
+.contact-container {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+.contact-box {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+}
+
+.contact-box input,
+.contact-box textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+    border-color: #00aaff;
+
+    box-shadow:
+        0 0 8px rgba(0,170,255,0.15);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background:
+        linear-gradient(
+            135deg,
+            #020d1c,
+            #052b50
+        );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 45px 20px;
+}
+
+footer h2 {
+    color: white;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: rgba(255,255,255,0.7);
+
+    margin: 5px;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+
+#topBtn {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #007bff,
+            #00c6ff
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 999;
+
+    box-shadow:
+        0 5px 20px rgba(0,123,255,0.4);
+
+    transition: 0.3s;
+}
+
+#topBtn:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes heroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes badgeFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes glowMove {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(120px, 100px);
+    }
+
+}
+
+@keyframes glowMove2 {
+
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-100px, -80px);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 14px 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        background: rgba(2, 20, 40, 0.97);
+
+        padding: 15px 25px;
+
+        backdrop-filter: blur(15px);
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    nav a {
+        padding: 13px 0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,0.08);
+    }
+
+    nav a::after {
+        display: none;
+    }
+
+    .admin-link {
+        text-align: center;
+
+        margin-top: 8px;
+    }
+
+    .hero {
+        background-attachment: scroll;
+
+        min-height: 100vh;
+
+        padding-top: 130px;
+    }
+
+    .school-badge {
+        width: 95px;
+        height: 95px;
+    }
+
+    .welcome-text {
+        font-size: 12px;
+
+        letter-spacing: 4px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    section:not(.hero) {
+        padding: 65px 5%;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .logo h1 {
+        font-size: 17px;
+    }
+
+    .logo p {
+        font-size: 9px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero h2 {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .btn {
+        width: 220px;
+
+        text-align: center;
+    }
+
+    .application-box {
+        padding: 20px;
+    }
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+
+        <h1>IJUMO PROGRESSIVE</h1>
+        <p>SECONDARY SCHOOL</p>
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <nav id="navMenu">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#academics">Academics</a>
+
+        <a href="#classrooms">Classrooms</a>
+
+        <a href="#dormitories">Dormitories</a>
+
+        <a href="#admissions">Admissions</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#news">News</a>
+
+        <a href="#contact">Contact</a>
+
+        <a href="admin login.html" class="admin-link">
+            🔐 Admin Login
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <img
+            src="badge1.jpg"
+            class="school-badge"
+            alt="School badge"
+        >
+
+        <p class="welcome-text">
+            WELCOME TO
+        </p>
+
+        <h1>
+            IJUMO PROGRESSIVE
+            <span>SECONDARY SCHOOL</span>
+        </h1>
+
+        <h2>
+            WE LABOUR FOR PROGRESS
+        </h2>
+
+        <p class="hero-description">
+            Empowering learners with knowledge, discipline,
+            skills and confidence for a brighter future.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#admissions" class="btn">
+                📝 APPLY NOW
+            </a>
+
+            <a href="#about" class="btn btn-outline">
+                ℹ️ LEARN MORE
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="about">
+
+    <div class="section-title">
+
+        <h2>About Our School</h2>
+
+        <p>
+            Building a generation prepared for progress.
+        </p>
+
+    </div>
+
+    <div class="about-content">
+
+        <p>
+            <strong>
+                Ijumo Progressive Secondary School
+            </strong>
+            is committed to providing quality education
+            and developing students academically,
+            socially and personally.
+        </p>
+
+        <p>
+            We believe education should equip learners
+            with knowledge, discipline, practical skills
+            and confidence.
+        </p>
+
+        <p>
+            <strong>Our Motto:</strong>
+            WE LABOUR FOR PROGRESS
+        </p>
+
+        <p>
+            <strong>Address:</strong>
+            P.O. Box 95, Mitooma
+        </p>
+
+        <p>
+            <strong>Telephone:</strong>
+            0730 819108
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ACADEMICS -->
+
+<section id="academics">
+
+    <div class="section-title">
+
+        <h2>Academics</h2>
+
+        <p>
+            Quality education for academic excellence.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>
+                📚 Academic Excellence
+            </h3>
+
+            <p>
+                We provide learners with a strong
+                academic foundation and encourage
+                them to achieve their full potential.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                💻 ICT & Technology
+            </h3>
+
+            <p>
+                Students are encouraged to develop
+                modern technological skills needed
+                in today's digital world.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>
+                🎓 Student Development
+            </h3>
+
+            <p>
+                We promote discipline, leadership,
+                confidence and responsible citizenship.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CLASSROOMS -->
+
+<section id="classrooms" class="about">
+
+    <div class="section-title">
+
+        <h2>Our Classrooms</h2>
+
+        <p>
+            Conducive learning environments
+            for our students.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img
+                src="images/classroom1.jpg"
+                alt="Classroom"
+            >
+
+            <h3>
+                Modern Learning Environment
+            </h3>
+
+            <p>
+                Comfortable spaces for learning,
+                interaction and academic development.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <img
+                src="images/classroom2.jpg"
+                alt="Classroom"
+            >
+
+            <h3>
+                Academic Excellence
+            </h3>
+
+            <p>
+                We encourage active participation
+                and development of knowledge and skills.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <img
+                src="images/classroom3.jpg"
+                alt="Students learning"
+            >
+
+            <h3>
+                Student Development
+            </h3>
+
+            <p>
+                Our learning spaces support academic,
+                social and personal development.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DORMITORIES -->
+
+<section id="dormitories">
+
+    <div class="section-title">
+
+        <h2>Our Dormitories</h2>
+
+        <p>
+            Safe and comfortable accommodation
+            for students.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <img
+                src="images/dormitory1.jpg"
+                alt="Dormitory"
+            >
+
+            <h3>
+                Student Accommodation
+            </h3>
+
+            <p>
+                A suitable environment for rest,
+                study and personal development.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <img
+                src="images/dormitory2.jpg"
+                alt="Boarding"
+            >
+
+            <h3>
+                Boarding Facilities
+            </h3>
+
+            <p>
+                Organized accommodation and
+                a structured boarding environment.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <img
+                src="images/dormitory3.jpg"
+                alt="Dormitory"
+            >
+
+            <h3>
+                Student Welfare
+            </h3>
+
+            <p>
+                An environment that supports
+                students' wellbeing and academic success.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ADMISSIONS -->
+
+<section id="admissions">
+
+    <div class="section-title">
+
+        <h2>Apply Now</h2>
+
+        <p>
+            Join Ijumo Progressive Secondary School.
+        </p>
+
+    </div>
+
+    <div class="application-box">
+
+        <h3>
+            Student Application Form
+        </h3>
+
+        <p>
+            Submit your information and it will be
+            saved on this computer for this demo version.
+        </p>
+
+        <form id="applicationForm">
+
+            <label>Student's Full Name</label>
+
+            <input
+                id="studentName"
+                required
+            >
+
+            <label>Date of Birth</label>
+
+            <input
+                id="dateOfBirth"
+                type="date"
+                required
+            >
+
+            <label>Gender</label>
+
+            <select id="gender" required>
+
+                <option value="">
+                    Select Gender
+                </option>
+
+                <option>Male</option>
+
+                <option>Female</option>
+
+            </select>
+
+            <label>Class Applying For</label>
+
+            <select id="classApplying" required>
+
+                <option value="">
+                    Select Class
+                </option>
+
+                <option>S.1</option>
+                <option>S.2</option>
+                <option>S.3</option>
+                <option>S.4</option>
+                <option>S.5</option>
+                <option>S.6</option>
+
+            </select>
+
+            <label>Previous School</label>
+
+            <input
+                id="previousSchool"
+                required
+            >
+
+            <label>Parent/Guardian Name</label>
+
+            <input
+                id="guardianName"
+                required
+            >
+
+            <label>Parent/Guardian Phone</label>
+
+            <input
+                id="guardianPhone"
+                type="tel"
+                required
+            >
+
+            <label>Email Address</label>
+
+            <input
+                id="email"
+                type="email"
+            >
+
+            <label>Additional Information</label>
+
+            <textarea
+                id="additionalInformation"
+                rows="5"
+            ></textarea>
+
+            <button
+                class="btn"
+                type="submit"
+            >
+                Submit Application
+            </button>
+
+            <div
+                id="applicationStatus"
+                class="status"
+            ></div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery" class="about">
+
+    <div class="section-title">
+
+        <h2>School Gallery</h2>
+
+        <p>
+            A glimpse of life at IPSS.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <img
+                src="images/school1.jpg"
+                alt="School"
+            >
+        </div>
+
+        <div class="card">
+            <img
+                src="images/school2.jpg"
+                alt="School activity"
+            >
+        </div>
+
+        <div class="card">
+            <img
+                src="images/school3.jpg"
+                alt="School environment"
+            >
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEWS -->
+
+<section id="news">
+
+    <div class="section-title">
+
+        <h2>News & Announcements</h2>
+
+        <p>
+            Latest information from IPSS.
+        </p>
+
+    </div>
+
+    <div
+        id="publicNews"
+        class="news-grid"
+    >
+
+        <p style="text-align:center">
+            Loading news...
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            We are here to help.
+        </p>
+
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+
+            <h3>
+                School Information
+            </h3>
+
+            <p>
+                🏫
+                <strong>
+                    Ijumo Progressive Secondary School
+                </strong>
+            </p>
+
+            <p>
+                📍 P.O. Box 95, Mitooma
+            </p>
+
+            <p>
+                📞 0730 819108
+            </p>
+
+            <p>
+                🎓 We Labour For Progress
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <h3>
+                Send Us a Message
+            </h3>
+
+            <form id="messageForm">
+
+                <label>Your Name</label>
+
+                <input
+                    id="messageName"
+                    required
+                >
+
+                <label>Your Email</label>
+
+                <input
+                    id="messageEmail"
+                    type="email"
+                    required
+                >
+
+                <label>Your Phone Number</label>
+
+                <input
+                    id="messagePhone"
+                    type="tel"
+                >
+
+                <label>Your Message</label>
+
+                <textarea
+                    id="messageText"
+                    rows="5"
+                    required
+                ></textarea>
+
+                <button
+                    class="btn"
+                    type="submit"
+                >
+                    Send Message
+                </button>
+
+                <div
+                    id="messageStatus"
+                    class="status"
+                ></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="quick-contact">
+
+        <a
+            href="tel:0730819108"
+            class="btn"
+        >
+            📞 Call Us
+        </a>
+
+        <a
+            href="https://wa.me/256730819108"
+            class="btn btn-dark"
+        >
+            💬 WhatsApp Us
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        <strong>
+            IJUMO PROGRESSIVE SECONDARY SCHOOL
+        </strong>
+    </p>
+
+    <p>
+        WE LABOUR FOR PROGRESS
+    </p>
+
+    <p>
+        P.O. Box 95, Mitooma |
+        Tel: 0730 819108
+    </p>
+
+    <p>
+        © 2026 Ijumo Progressive Secondary School.
+        All Rights Reserved.
+    </p>
+    <p>
+        AVTS 
+    </p>
+
+</footer>
+
+
+<button
+    id="topBtn"
+    onclick="goTop()"
+>
+    ↑
+</button>
+
+
+<script>
+
+function toggleMenu(){
+
+    document
+        .getElementById("navMenu")
+        .classList
+        .toggle("active");
+
+}
+
+
+document
+.querySelectorAll("#navMenu a")
+.forEach(a => {
+
+    a.addEventListener(
+        "click",
+        () => document
+            .getElementById("navMenu")
+            .classList
+            .remove("active")
+    );
+
+});
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        document.getElementById("topBtn").style.display =
+            document.documentElement.scrollTop > 300
+            ? "block"
+            : "none";
+
+    }
+);
+
+
+function goTop(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+
+<script>
+
+/* SAVE DATA */
+
+function saveItem(key,item){
+
+    const a =
+        JSON.parse(
+            localStorage.getItem(key) || "[]"
+        );
+
+    a.push(item);
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(a)
+    );
+
+}
+
+
+/* SECURITY FOR NEWS */
+
+function escapeHtml(v){
+
+    return String(v ?? "")
+        .replace(
+            /[&<>"']/g,
+            m => ({
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                "\"":"&quot;",
+                "'":"&#039;"
+            }[m])
+        );
+
+}
+
+
+/* APPLICATION FORM */
+
+document
+.getElementById("applicationForm")
+.addEventListener(
+    "submit",
+    function(e){
+
+        e.preventDefault();
+
+        const s =
+            document.getElementById(
+                "applicationStatus"
+            );
+
+        saveItem(
+            "ipss_applications",
+            {
+                studentName:
+                    document.getElementById(
+                        "studentName"
+                    ).value,
+
+                dateOfBirth:
+                    document.getElementById(
+                        "dateOfBirth"
+                    ).value,
+
+                gender:
+                    document.getElementById(
+                        "gender"
+                    ).value,
+
+                classApplying:
+                    document.getElementById(
+                        "classApplying"
+                    ).value,
+
+                previousSchool:
+                    document.getElementById(
+                        "previousSchool"
+                    ).value,
+
+                guardianName:
+                    document.getElementById(
+                        "guardianName"
+                    ).value,
+
+                guardianPhone:
+                    document.getElementById(
+                        "guardianPhone"
+                    ).value,
+
+                email:
+                    document.getElementById(
+                        "email"
+                    ).value,
+
+                additionalInformation:
+                    document.getElementById(
+                        "additionalInformation"
+                    ).value,
+
+                status:"New",
+
+                submittedAt:
+                    new Date().toLocaleString()
+            }
+        );
+
+        s.textContent =
+            "✅ Application submitted successfully!";
+
+        this.reset();
+
+    }
+);
+
+
+/* CONTACT FORM */
+
+document
+.getElementById("messageForm")
+.addEventListener(
+    "submit",
+    function(e){
+
+        e.preventDefault();
+
+        const s =
+            document.getElementById(
+                "messageStatus"
+            );
+
+        saveItem(
+            "ipss_messages",
+            {
+                name:
+                    document.getElementById(
+                        "messageName"
+                    ).value,
+
+                email:
+                    document.getElementById(
+                        "messageEmail"
+                    ).value,
+
+                phone:
+                    document.getElementById(
+                        "messagePhone"
+                    ).value,
+
+                message:
+                    document.getElementById(
+                        "messageText"
+                    ).value,
+
+                status:"New",
+
+                sentAt:
+                    new Date().toLocaleString()
+            }
+        );
+
+        s.textContent =
+            "✅ Message sent successfully!";
+
+        this.reset();
+
+    }
+);
+
+
+/* LOAD NEWS FROM DASHBOARD */
+
+function loadNews(){
+
+    const box =
+        document.getElementById(
+            "publicNews"
+        );
+
+    const items =
+        JSON.parse(
+            localStorage.getItem(
+                "ipss_news"
+            ) || "[]"
+        );
+
+    if(!items.length){
+
+        box.innerHTML =
+            '<p style="text-align:center">' +
+            'No announcements yet.' +
+            '</p>';
+
+        return;
+    }
+
+    box.innerHTML =
+        items
+        .slice()
+        .reverse()
+        .map(
+            n => `
+            <article class="news-card">
+
+                <h3>
+                    ${escapeHtml(n.title)}
+                </h3>
+
+                <p>
+                    ${escapeHtml(n.body)}
+                </p>
+
+                <div class="date">
+                    ${escapeHtml(
+                        n.date ||
+                        n.createdAt ||
+                        ""
+                    )}
+                </div>
+
+            </article>
+            `
+        )
+        .join("");
+
+}
+
+loadNews();
+
+</script>
+
+</body>
+</html>
