@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+>
+
+<title>IPSS Admin Login</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+    linear-gradient(
+        rgba(3,38,80,.9),
+        rgba(3,38,80,.95)
+    ),
+    url("director.png")
+    center/cover;
+
+}
+
+.card{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:rgba(221, 227, 240, 0.98);
+
+    border-radius:22px;
+
+    padding:40px 35px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(91, 8, 8, 0.4);
+
+    animation:show .6s ease;
+
+}
+
+@keyframes show{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+
+}
+
+.logo{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.logo img{
+
+    width:105px;
+
+    height:105px;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+    background:#a4b1da;
+
+    padding:7px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(8, 1, 44, 0.2);
+
+}
+
+.logo h1{
+
+    margin-top:15px;
+
+    color:#083869;
+
+    font-size:26px;
+
+}
+
+.logo p{
+
+    color:#300f7b;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+}
+
+h2{
+
+    text-align:center;
+
+    color:#073b7a;
+
+    margin-bottom:8px;
+
+}
+
+.sub{
+
+    text-align:center;
+
+    color:#140861;
+
+    font-size:14px;
+
+    margin-bottom:25px;
+
+}
+
+label{
+
+    display:block;
+
+    margin:15px 0 7px;
+
+    font-weight:bold;
+
+}
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #1c306a;
+
+    border-radius:11px;
+
+    font-size:15px;
+
+}
+
+input:focus{
+
+    outline:none;
+
+    border-color:#073b7a;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(232, 153, 6, 0.1);
+
+}
+
+.login{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #073b7a,
+            #0b5bb5
+        );
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.login:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.back{
+
+    display:block;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    border:2px solid #073b7a;
+
+    color:#073b7a;
+
+    padding:12px;
+
+    border-radius:11px;
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+}
+
+.back:hover{
+
+    background:#073b7a;
+
+    color:#fff;
+
+}
+
+.status{
+
+    text-align:center;
+
+    margin-top:12px;
+
+    color:#c62828;
+
+    font-weight:bold;
+
+}
+
+.hint{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    color:#912626;
+
+    font-size:12px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="card">
+
+
+    <div class="logo">
+
+        <img
+            src="badge1.jpg"
+            alt="IPSS"
+        >
+
+        <h1>
+            IJUMO PROGRESSIVE
+        </h1>
+
+        <p>
+            SECONDARY SCHOOL
+        </p>
+
+    </div>
+
+
+    <h2>
+        🔐 Admin Login
+    </h2>
+
+    <p class="sub">
+        School Administration Portal
+    </p>
+
+
+    <form id="loginForm">
+
+
+        <label>
+            Username
+        </label>
+
+        <input
+            id="username"
+            autocomplete="username"
+            placeholder="Enter username"
+            required
+        >
+
+
+        <label>
+            Password
+        </label>
+
+        <input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Enter password"
+            required
+        >
+
+
+        <button
+            class="login"
+            type="submit"
+        >
+            LOGIN TO DASHBOARD
+        </button>
+
+
+        <div
+            id="status"
+            class="status"
+        ></div>
+
+
+    </form>
+
+
+    <a
+        class="back"
+        href="IPSS.html"
+    >
+        🏠 BACK TO SCHOOL WEBSITE
+    </a>
+
+
+    <p class="hint">
+
+        copyright @ipss admin 
+
+    </p>
+
+
+</div>
+
+
+<script>
+
+document
+.getElementById("loginForm")
+.addEventListener(
+    "submit",
+    function(e){
+
+        e.preventDefault();
+
+
+        const u =
+            document
+            .getElementById("username")
+            .value
+            .trim();
+
+
+        const p =
+            document
+            .getElementById("password")
+            .value;
+
+
+        if(
+            u === "ipss admin 2026" &&
+            p === "estd2005"
+        ){
+
+            localStorage.setItem(
+                "ipss_admin_logged_in",
+                "yes"
+            );
+
+            location.href =
+                "dashboard.html";
+
+        }
+
+        else{
+
+            document
+            .getElementById("status")
+            .textContent =
+                "❌ Invalid username or password!";
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
