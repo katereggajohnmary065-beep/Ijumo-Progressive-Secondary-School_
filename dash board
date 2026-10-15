@@ -1,0 +1,1895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+>
+
+<title>IPSS Admin Dashboard</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    background:#c4d1e2;
+
+    color:#222;
+
+}
+
+
+/* SIDEBAR */
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:250px;
+
+    height:100vh;
+
+    background:#b5bee1;
+
+    color:#080323;
+
+    padding:25px 18px;
+
+    z-index:10;
+
+}
+
+.brand{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.brand img{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:#ef0505;
+
+    padding:5px;
+
+}
+
+.brand h2{
+
+    font-size:18px;
+
+    margin-top:8px;
+
+}
+
+.brand p{
+
+    font-size:11px;
+
+    color:#060424;
+
+}
+
+
+/* SIDEBAR BUTTONS */
+
+.side button{
+
+    display:block;
+
+    width:100%;
+
+    text-align:left;
+
+    border:0;
+
+    background:transparent;
+
+    color:#2f1291;
+
+    padding:13px 12px;
+
+    border-radius:8px;
+
+    margin:4px 0;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+.side button:hover,
+.side button.active{
+
+    background:#4f82ca;
+
+}
+
+.logout{
+
+    background:#c62828!important;
+
+    margin-top:20px!important;
+
+}
+
+
+/* MAIN */
+
+.main{
+
+    margin-left:250px;
+
+    padding:25px;
+
+}
+
+
+/* TOP */
+
+.top{
+
+    background:#fff;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.06);
+
+}
+
+.top h1{
+
+    color:#073b7a;
+
+}
+
+
+/* SECTIONS */
+
+.section{
+
+    display:none;
+
+    margin-top:25px;
+
+}
+
+.section.active{
+
+    display:block;
+
+}
+
+
+/* STATISTICS */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+}
+
+.stat{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.06);
+
+}
+
+.stat h3{
+
+    color:#0a2545;
+
+    font-size:28px;
+
+}
+
+
+/* PANELS */
+
+.panel{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    margin-top:20px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.06);
+
+}
+
+.panel h2{
+
+    color:#073b7a;
+
+    margin-bottom:18px;
+
+}
+
+
+/* FORMS */
+
+.form-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:7px;
+
+}
+
+.full{
+
+    grid-column:1/-1;
+
+}
+
+
+/* BUTTON */
+
+.btn{
+
+    padding:11px 17px;
+
+    border:0;
+
+    border-radius:7px;
+
+    background:#073b7a;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+.danger{
+
+    background:#c62828;
+
+}
+
+
+/* TABLE */
+
+.table-wrap{
+
+    overflow:auto;
+
+}
+
+.table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.table th,
+.table td{
+
+    padding:11px;
+
+    border-bottom:1px solid #eee;
+
+    text-align:left;
+
+    font-size:14px;
+
+    vertical-align:top;
+
+}
+
+.table th{
+
+    background:#f4f7fb;
+
+    color:#073b7a;
+
+}
+
+
+/* OTHER */
+
+.msg{
+
+    margin-top:10px;
+
+    font-weight:bold;
+
+}
+
+.mobile-menu{
+
+    display:none;
+
+}
+
+.news-admin{
+
+    border:1px solid #eee;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    margin:10px 0;
+
+}
+
+.small{
+
+    font-size:12px;
+
+    color:#777;
+
+}
+
+.empty{
+
+    text-align:center;
+
+    color:#777;
+
+    padding:20px;
+
+}
+
+.toast{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    background:#073b7a;
+
+    color:#fff;
+
+    padding:14px 18px;
+
+    border-radius:10px;
+
+    display:none;
+
+    z-index:100;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .sidebar{
+
+        position:fixed;
+
+        left:-260px;
+
+        transition:.3s;
+
+    }
+
+    .sidebar.open{
+
+        left:0;
+
+    }
+
+    .main{
+
+        margin-left:0;
+
+        padding:15px;
+
+    }
+
+    .mobile-menu{
+
+        display:block;
+
+        border:0;
+
+        background:#073b7a;
+
+        color:#fff;
+
+        padding:10px 14px;
+
+        border-radius:7px;
+
+    }
+
+    .stats{
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .full{
+
+        grid-column:auto;
+
+    }
+
+    .top h1{
+
+        font-size:18px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+
+    <div class="brand">
+
+        <img
+            src="badge1.jpg"
+            alt="IPSS"
+        >
+
+        <h2>
+            IPSS ADMIN
+        </h2>
+
+        <p>
+            WE LABOUR FOR PROGRESS
+        </p>
+
+    </div>
+
+
+    <div class="side">
+
+
+        <button
+            class="active"
+            onclick="showSection('dashboard',this)"
+        >
+            🏠 Dashboard
+        </button>
+
+
+        <button
+            onclick="showSection('applications',this)"
+        >
+            📝 Applications
+        </button>
+
+
+        <button
+            onclick="showSection('students',this)"
+        >
+            👨‍🎓 Students
+        </button>
+
+
+        <button
+            onclick="showSection('staff',this)"
+        >
+            👨‍🏫 Staff
+        </button>
+
+
+        <button
+            onclick="showSection('news',this)"
+        >
+            📰 News
+        </button>
+
+
+        <button
+            onclick="showSection('messages',this)"
+        >
+            💬 Messages
+        </button>
+
+
+        <button
+            onclick="showSection('gallery',this)"
+        >
+            🖼️ Gallery
+        </button>
+
+
+        <button
+            onclick="showSection('settings',this)"
+        >
+            ⚙️ Settings
+        </button>
+
+
+        <button
+            class="logout"
+            onclick="logout()"
+        >
+            🚪 Logout
+        </button>
+
+
+    </div>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+
+    <div class="top">
+
+        <button
+            class="mobile-menu"
+            onclick="
+            document
+            .getElementById('sidebar')
+            .classList
+            .toggle('open')
+            "
+        >
+            ☰
+        </button>
+
+        <h1>
+            IPSS ADMINISTRATION
+        </h1>
+
+        <span>
+            Admin
+        </span>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <section
+        id="dashboard"
+        class="section active"
+    >
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <p>
+                    Applications
+                </p>
+
+                <h3 id="appCount">
+                    0
+                </h3>
+
+            </div>
+
+
+            <div class="stat">
+
+                <p>
+                    Students
+                </p>
+
+                <h3 id="studentCount">
+                    0
+                </h3>
+
+            </div>
+
+
+            <div class="stat">
+
+                <p>
+                    Staff
+                </p>
+
+                <h3 id="staffCount">
+                    0
+                </h3>
+
+            </div>
+
+
+            <div class="stat">
+
+                <p>
+                    Messages
+                </p>
+
+                <h3 id="messageCount">
+                    0
+                </h3>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="panel">
+
+            <h2>
+                Welcome to the IPSS Admin Dashboard
+            </h2>
+
+            <p>
+                This version works without Firebase.
+                Data is saved in your browser using
+                localStorage.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- APPLICATIONS -->
+
+    <section
+        id="applications"
+        class="section"
+    >
+
+        <div class="panel">
+
+            <h2>
+                📝 APPLICATIONS
+            </h2>
+
+            <div class="table-wrap">
+
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Gender</th>
+                            <th>Guardian</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="applicationsTable"
+                    ></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STUDENTS -->
+
+    <section
+        id="students"
+        class="section"
+    >
+
+        <div class="panel">
+
+            <h2>
+                👨‍🎓 Add Student
+            </h2>
+
+            <form
+                id="studentForm"
+                class="form-grid"
+            >
+
+                <input
+                    id="sName"
+                    placeholder="Student name"
+                    required
+                >
+
+                <input
+                    id="sClass"
+                    placeholder="Class"
+                    required
+                >
+
+                <input
+                    id="sGender"
+                    placeholder="Gender"
+                >
+
+                <input
+                    id="sPhone"
+                    placeholder="Parent phone"
+                >
+
+                <button
+                    class="btn full"
+                >
+                    Save Student
+                </button>
+
+            </form>
+
+            <div
+                id="studentMsg"
+                class="msg"
+            ></div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h2>
+                Students
+            </h2>
+
+            <div class="table-wrap">
+
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Gender</th>
+                            <th>Phone</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="studentsTable"
+                    ></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STAFF -->
+
+    <section
+        id="staff"
+        class="section"
+    >
+
+        <div class="panel">
+
+            <h2>
+                👨‍🏫 Add Staff
+            </h2>
+
+            <form
+                id="staffForm"
+                class="form-grid"
+            >
+
+                <input
+                    id="tName"
+                    placeholder="Staff name"
+                    required
+                >
+
+                <input
+                    id="tRole"
+                    placeholder="Role/Position"
+                    required
+                >
+
+                <input
+                    id="tPhone"
+                    placeholder="Phone"
+                >
+
+                <input
+                    id="tEmail"
+                    type="email"
+                    placeholder="Email"
+                >
+
+                <button
+                    class="btn full"
+                >
+                    Save Staff
+                </button>
+
+            </form>
+
+            <div
+                id="staffMsg"
+                class="msg"
+            ></div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h2>
+                Staff
+            </h2>
+
+            <div class="table-wrap">
+
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="staffTable"
+                    ></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEWS -->
+
+    <section
+        id="news"
+        class="section"
+    >
+
+        <div class="panel">
+
+            <h2>
+                📰 Publish News
+            </h2>
+
+            <form
+                id="newsForm"
+                class="form-grid"
+            >
+
+                <input
+                    id="newsTitle"
+                    placeholder="Headline"
+                    required
+                >
+
+                <input
+                    id="newsDate"
+                    placeholder="Date, e.g. 29 Sept 2026"
+                >
+
+                <textarea
+                    id="newsBody"
+                    class="full"
+                    rows="5"
+                    placeholder="Announcement"
+                    required
+                ></textarea>
+
+                <button
+                    class="btn full"
+                >
+                    Publish News
+                </button>
+
+            </form>
+
+            <div
+                id="newsMsg"
+                class="msg"
+            ></div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <h2>
+                Published News
+            </h2>
+
+            <div id="adminNews"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MESSAGES -->
+
+    <section
+        id="messages"
+        class="section"
+    >
+
+        <div class="panel">
+
+            <h2>
+                💬 Contact Messages
+            </h2>
+
+            <div class="table-wrap">
+
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Message</th>
+                            <th>Date</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="messagesTable"
+                    ></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section
+        id="gallery"
+        class="section"
+    >
+
+        <div class="panel">
+
+            <h2>
+                🖼️ Gallery
+            </h2>
+
+            <p>
+                Keep your school images inside
+                the <b>images</b> folder.
+                The public website displays
+                them automatically.
+            </p>
+
+            <p style="margin-top:10px">
+
+                school.jpg,
+                school-badge.png,
+                school1.jpg,
+                school2.jpg,
+                school3.jpg,
+                classroom1.jpg,
+                classroom2.jpg,
+                classroom3.jpg,
+                dormitory1.jpg,
+                dormitory2.jpg,
+                dormitory3.jpg
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SETTINGS -->
+
+    <section
+        id="settings"
+        class="section"
+    >
+
+        <div class="panel">
+
+            <h2>
+                ⚙️ Settings
+            </h2>
+
+            <p>
+                <b>School:</b>
+                Ijumo Progressive Secondary School
+            </p>
+
+            <p>
+                <b>Address:</b>
+                P.O. Box 95, Mitooma
+            </p>
+
+            <p>
+                <b>Phone:</b>
+                0730 819108
+            </p>
+
+            <p>
+                <b>Motto:</b>
+                WE LABOUR FOR PROGRESS
+            </p>
+
+            <p
+                style="margin-top:15px;color:#777"
+            >
+                This is a local demo version.
+                Data is stored only in this browser.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+<script>
+
+
+/* PROTECT DASHBOARD */
+
+if(
+    localStorage.getItem(
+        'ipss_admin_logged_in'
+    ) !== 'yes'
+){
+
+    location.href =
+        'admin login.html';
+
+}
+
+
+/* GET DATA */
+
+function get(key){
+
+    return JSON.parse(
+        localStorage.getItem(key) || '[]'
+    );
+
+}
+
+
+/* SAVE DATA */
+
+function set(key,value){
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(value)
+    );
+
+}
+
+
+/* HTML SECURITY */
+
+function esc(value){
+
+    return String(value ?? '')
+        .replace(
+            /[&<>"']/g,
+
+            function(m){
+
+                return {
+
+                    '&':'&amp;',
+                    '<':'&lt;',
+                    '>':'&gt;',
+                    '"':'&quot;',
+                    "'":'&#039;'
+
+                }[m];
+
+            }
+        );
+
+}
+
+
+/* CHANGE SECTION */
+
+function showSection(id,btn){
+
+    document
+        .querySelectorAll('.section')
+        .forEach(
+            s =>
+            s.classList.remove('active')
+        );
+
+
+    document
+        .getElementById(id)
+        .classList.add('active');
+
+
+    document
+        .querySelectorAll('.side button')
+        .forEach(
+            b =>
+            b.classList.remove('active')
+        );
+
+
+    if(btn){
+
+        btn.classList.add('active');
+
+    }
+
+
+    document
+        .getElementById('sidebar')
+        .classList
+        .remove('open');
+
+
+    renderAll();
+
+}
+
+
+/* LOGOUT */
+
+function logout(){
+
+    localStorage.removeItem(
+        'ipss_admin_logged_in'
+    );
+
+    location.href =
+        'admin login.html';
+
+}
+
+
+/* TOAST */
+
+function toast(text){
+
+    const x =
+        document.getElementById('toast');
+
+    x.textContent = text;
+
+    x.style.display = 'block';
+
+    setTimeout(
+        () =>
+        x.style.display = 'none',
+        2200
+    );
+
+}
+
+
+/* RENDER EVERYTHING */
+
+function renderAll(){
+
+    const apps =
+        get('ipss_applications');
+
+    const students =
+        get('ipss_students');
+
+    const staff =
+        get('ipss_staff');
+
+    const msgs =
+        get('ipss_messages');
+
+    const news =
+        get('ipss_news');
+
+
+    document.getElementById(
+        'appCount'
+    ).textContent =
+        apps.length;
+
+
+    document.getElementById(
+        'studentCount'
+    ).textContent =
+        students.length;
+
+
+    document.getElementById(
+        'staffCount'
+    ).textContent =
+        staff.length;
+
+
+    document.getElementById(
+        'messageCount'
+    ).textContent =
+        msgs.length;
+
+
+    /* APPLICATIONS */
+
+    document.getElementById(
+        'applicationsTable'
+    ).innerHTML =
+
+        apps.length
+
+        ?
+
+        apps
+        .slice()
+        .reverse()
+        .map(
+
+            a => `
+
+            <tr>
+
+                <td>
+                    ${esc(a.studentName)}
+                </td>
+
+                <td>
+                    ${esc(a.classApplying)}
+                </td>
+
+                <td>
+                    ${esc(a.gender)}
+                </td>
+
+                <td>
+                    ${esc(a.guardianName)}
+                </td>
+
+                <td>
+                    ${esc(a.guardianPhone)}
+                </td>
+
+                <td>
+                    ${esc(a.submittedAt)}
+                </td>
+
+            </tr>
+
+            `
+        )
+        .join('')
+
+        :
+
+        `
+        <tr>
+            <td
+                colspan="6"
+                class="empty"
+            >
+                No applications yet.
+            </td>
+        </tr>
+        `;
+
+
+    /* STUDENTS */
+
+    document.getElementById(
+        'studentsTable'
+    ).innerHTML =
+
+        students.length
+
+        ?
+
+        students
+        .map(
+
+            (s,i) => `
+
+            <tr>
+
+                <td>
+                    ${esc(s.name)}
+                </td>
+
+                <td>
+                    ${esc(s.cls)}
+                </td>
+
+                <td>
+                    ${esc(s.gender)}
+                </td>
+
+                <td>
+                    ${esc(s.phone)}
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn danger"
+                        onclick="
+                        removeItem(
+                            'ipss_students',
+                            ${i}
+                        )
+                        "
+                    >
+                        Delete
+                    </button>
+
+                </td>
+
+            </tr>
+
+            `
+        )
+        .join('')
+
+        :
+
+        `
+        <tr>
+
+            <td
+                colspan="5"
+                class="empty"
+            >
+                No students yet.
+            </td>
+
+        </tr>
+        `;
+
+
+    /* STAFF */
+
+    document.getElementById(
+        'staffTable'
+    ).innerHTML =
+
+        staff.length
+
+        ?
+
+        staff
+        .map(
+
+            (s,i) => `
+
+            <tr>
+
+                <td>
+                    ${esc(s.name)}
+                </td>
+
+                <td>
+                    ${esc(s.role)}
+                </td>
+
+                <td>
+                    ${esc(s.phone)}
+                </td>
+
+                <td>
+                    ${esc(s.email)}
+                </td>
+
+                <td>
+
+                    <button
+                        class="btn danger"
+                        onclick="
+                        removeItem(
+                            'ipss_staff',
+                            ${i}
+                        )
+                        "
+                    >
+                        Delete
+                    </button>
+
+                </td>
+
+            </tr>
+
+            `
+        )
+        .join('')
+
+        :
+
+        `
+        <tr>
+
+            <td
+                colspan="5"
+                class="empty"
+            >
+                No staff yet.
+            </td>
+
+        </tr>
+        `;
+
+
+    /* MESSAGES */
+
+    document.getElementById(
+        'messagesTable'
+    ).innerHTML =
+
+        msgs.length
+
+        ?
+
+        msgs
+        .slice()
+        .reverse()
+        .map(
+
+            m => `
+
+            <tr>
+
+                <td>
+                    ${esc(m.name)}
+                </td>
+
+                <td>
+                    ${esc(m.email)}
+                </td>
+
+                <td>
+                    ${esc(m.phone)}
+                </td>
+
+                <td>
+                    ${esc(m.message)}
+                </td>
+
+                <td>
+                    ${esc(m.sentAt)}
+                </td>
+
+            </tr>
+
+            `
+        )
+        .join('')
+
+        :
+
+        `
+        <tr>
+
+            <td
+                colspan="5"
+                class="empty"
+            >
+                No messages yet.
+            </td>
+
+        </tr>
+        `;
+
+
+    /* NEWS */
+
+    document.getElementById(
+        'adminNews'
+    ).innerHTML =
+
+        news.length
+
+        ?
+
+        news
+        .slice()
+        .reverse()
+        .map(
+
+            (n,ri) => {
+
+                const i =
+                    news.length - 1 - ri;
+
+                return `
+
+                <div class="news-admin">
+
+                    <h3>
+                        ${esc(n.title)}
+                    </h3>
+
+                    <p>
+                        ${esc(n.body)}
+                    </p>
+
+                    <p class="small">
+                        ${esc(
+                            n.date ||
+                            n.createdAt ||
+                            ''
+                        )}
+                    </p>
+
+                    <button
+                        class="btn danger"
+                        style="margin-top:10px"
+                        onclick="
+                        removeItem(
+                            'ipss_news',
+                            ${i}
+                        )
+                        "
+                    >
+                        Delete
+                    </button>
+
+                </div>
+
+                `;
+
+            }
+
+        )
+        .join('')
+
+        :
+
+        `
+        <p class="empty">
+            No news published yet.
+        </p>
+        `;
+
+}
+
+
+/* DELETE */
+
+function removeItem(key,index){
+
+    const a =
+        get(key);
+
+    a.splice(index,1);
+
+    set(key,a);
+
+    renderAll();
+
+    toast(
+        'Deleted successfully'
+    );
+
+}
+
+
+/* ADD STUDENT */
+
+document
+.getElementById('studentForm')
+.addEventListener(
+    'submit',
+    function(e){
+
+        e.preventDefault();
+
+        const a =
+            get('ipss_students');
+
+        a.push({
+
+            name:
+                document
+                .getElementById('sName')
+                .value,
+
+            cls:
+                document
+                .getElementById('sClass')
+                .value,
+
+            gender:
+                document
+                .getElementById('sGender')
+                .value,
+
+            phone:
+                document
+                .getElementById('sPhone')
+                .value
+
+        });
+
+
+        set(
+            'ipss_students',
+            a
+        );
+
+
+        e.target.reset();
+
+
+        document
+        .getElementById('studentMsg')
+        .textContent =
+            '✅ Student saved.';
+
+
+        renderAll();
+
+        toast(
+            'Student saved'
+        );
+
+    }
+);
+
+
+/* ADD STAFF */
+
+document
+.getElementById('staffForm')
+.addEventListener(
+    'submit',
+    function(e){
+
+        e.preventDefault();
+
+        const a =
+            get('ipss_staff');
+
+        a.push({
+
+            name:
+                document
+                .getElementById('tName')
+                .value,
+
+            role:
+                document
+                .getElementById('tRole')
+                .value,
+
+            phone:
+                document
+                .getElementById('tPhone')
+                .value,
+
+            email:
+                document
+                .getElementById('tEmail')
+                .value
+
+        });
+
+
+        set(
+            'ipss_staff',
+            a
+        );
+
+
+        e.target.reset();
+
+
+        document
+        .getElementById('staffMsg')
+        .textContent =
+            '✅ Staff saved.';
+
+
+        renderAll();
+
+        toast(
+            'Staff saved'
+        );
+
+    }
+);
+
+
+/* PUBLISH NEWS */
+
+document
+.getElementById('newsForm')
+.addEventListener(
+    'submit',
+    function(e){
+
+        e.preventDefault();
+
+        const a =
+            get('ipss_news');
+
+        a.push({
+
+            title:
+                document
+                .getElementById('newsTitle')
+                .value,
+
+            body:
+                document
+                .getElementById('newsBody')
+                .value,
+
+            date:
+                document
+                .getElementById('newsDate')
+                .value
+                ||
+                new Date()
+                .toLocaleDateString()
+
+        });
+
+
+        set(
+            'ipss_news',
+            a
+        );
+
+
+        e.target.reset();
+
+
+        document
+        .getElementById('newsMsg')
+        .textContent =
+            '✅ News published.';
+
+
+        renderAll();
+
+        toast(
+            'News published'
+        );
+
+    }
+);
+
+
+renderAll();
+
+</script>
+
+</body>
+</html>
